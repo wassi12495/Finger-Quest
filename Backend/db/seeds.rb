@@ -1,0 +1,5 @@
+u = User.create(name: "Bob")
+Item.create(name:"Beer", img:"https://dydza6t6xitx6.cloudfront.net/ci_2822.jpg", healthEffect:3, description: "Health Increase 3 Points!")
+Item.create(name:"Hot Dog", img:"http://www.hot-dog.org/sites/default/files/pictures/hotdogstories/is%20hot%20dog.jpg", healthEffect:1, description: "Health Increase 1 Point!")
+Item.create(name:"The Finger", img:"https://cdn.shopify.com/s/files/1/1061/1924/files/Middle_Finger_Emoji.png?9898922749706957214", healthEffect:-1, description: "Health Decrease 1 Point!")
+Item.create(name:"Reload", img:"http://blog.emojipedia.org/content/images/2015/10/middle-finger.png", ammoEffect: 5, description: "+5 Ammo")
