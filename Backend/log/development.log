@@ -9801,3 +9801,134 @@ No serializer found for resource: #<Score id: 1, score: 15, user_id: 3>
 Completed 200 OK in 30ms (Views: 25.2ms | ActiveRecord: 3.8ms)
 
 
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (23.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (196.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Finger-Quest-Backend_development"[0m
+  [1m[35m (187.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Finger-Quest-Backend_test"[0m
+  [1m[35m (422.0ms)[0m  [1m[35mCREATE DATABASE "Finger-Quest-Backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (367.3ms)[0m  [1m[35mCREATE DATABASE "Finger-Quest-Backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "items" CASCADE[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "name" character varying, "img" character varying, "healthEffect" integer, "ammoEffect" integer, "description" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "scores" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "scores" ("id" bigserial primary key, "score" integer, "user_id" bigint)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_scores_on_user_id" ON "scores"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "level" integer)[0m
+  [1m[35m (28.5ms)[0m  [1m[35mALTER TABLE "scores" ADD CONSTRAINT "fk_rails_f5dcd5d06f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180102210042)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180102202626),
+(20180102202630);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-28 18:27:07.542779"], ["updated_at", "2018-03-28 18:27:07.542779"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "items" CASCADE[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "name" character varying, "img" character varying, "healthEffect" integer, "ammoEffect" integer, "description" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "scores" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "scores" ("id" bigserial primary key, "score" integer, "user_id" bigint)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_scores_on_user_id" ON "scores"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "level" integer)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "scores" ADD CONSTRAINT "fk_rails_f5dcd5d06f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180102210042)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180102202626),
+(20180102202630);
+
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-28 18:27:07.640101"], ["updated_at", "2018-03-28 18:27:07.640101"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Bob"]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "img", "healthEffect", "description") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Beer"], ["img", "https://dydza6t6xitx6.cloudfront.net/ci_2822.jpg"], ["healthEffect", 3], ["description", "Health Increase 3 Points!"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "img", "healthEffect", "description") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Hot Dog"], ["img", "http://www.hot-dog.org/sites/default/files/pictures/hotdogstories/is%20hot%20dog.jpg"], ["healthEffect", 1], ["description", "Health Increase 1 Point!"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "img", "healthEffect", "description") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "The Finger"], ["img", "https://cdn.shopify.com/s/files/1/1061/1924/files/Middle_Finger_Emoji.png?9898922749706957214"], ["healthEffect", -1], ["description", "Health Decrease 1 Point!"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "img", "ammoEffect", "description") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Reload"], ["img", "http://blog.emojipedia.org/content/images/2015/10/middle-finger.png"], ["ammoEffect", 5], ["description", "+5 Ammo"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/items" for 127.0.0.1 at 2018-03-28 14:27:42 -0400
+Started GET "/api/v1/scores" for 127.0.0.1 at 2018-03-28 14:27:42 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ScoresController#index as */*
+  [1m[35m (17.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mScore Load (6.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 23ms (Views: 7.1ms | ActiveRecord: 9.0ms)
+
+
+No serializer found for resource: #<Item id: 1, name: "Beer", img: "https://dydza6t6xitx6.cloudfront.net/ci_2822.jpg", healthEffect: 3, ammoEffect: nil, description: "Health Increase 3 Points!">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Item::ActiveRecord_Relation (0.65ms)
+Completed 200 OK in 32ms (Views: 17.7ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/api/v1/items" for 127.0.0.1 at 2018-03-28 14:57:20 -0400
+Started GET "/api/v1/scores" for 127.0.0.1 at 2018-03-28 14:57:20 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ScoresController#index as */*
+Processing by Api::V1::ItemsController#index as */*
+  [1m[36mScore Load (2.2ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 21ms (Views: 5.1ms | ActiveRecord: 4.9ms)
+
+
+No serializer found for resource: #<Item id: 1, name: "Beer", img: "https://dydza6t6xitx6.cloudfront.net/ci_2822.jpg", healthEffect: 3, ammoEffect: nil, description: "Health Increase 3 Points!">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Item::ActiveRecord_Relation (0.62ms)
+Completed 200 OK in 39ms (Views: 17.2ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/api/v1/items" for 127.0.0.1 at 2018-03-28 15:38:23 -0400
+Processing by Api::V1::ItemsController#index as */*
+Started GET "/api/v1/scores" for 127.0.0.1 at 2018-03-28 15:38:23 -0400
+Processing by Api::V1::ScoresController#index as */*
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mScore Load (0.8ms)[0m  [1m[34mSELECT "scores".* FROM "scores"[0m
+No serializer found for resource: #<Item id: 1, name: "Beer", img: "https://dydza6t6xitx6.cloudfront.net/ci_2822.jpg", healthEffect: 3, ammoEffect: nil, description: "Health Increase 3 Points!">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Item::ActiveRecord_Relation (2.05ms)
+Completed 200 OK in 50ms (Views: 3.7ms | ActiveRecord: 19.8ms)
+
+
+Completed 200 OK in 71ms (Views: 38.0ms | ActiveRecord: 28.8ms)
+
+
